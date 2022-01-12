@@ -9,12 +9,15 @@ import {
   fetchContactRequest,
   fetchContactSuccess,
   fetchContactError,
+  fetchContactByIdRequest,
+  fetchContactByIdSuccess,
+  fetchContactByIdError,
   updateContactRequest,
   updateContactSuccess,
   updateContactError
 } from './phonebook-actions.js';
 
-axios.defaults.baseURL = 'https://jsonplaceholder.typicode.com';
+axios.defaults.baseURL = 'http://localhost:4040';
 
 const addContact = (name, phone) => (dispatch, getState) => {
   const contact = { name, phone };
@@ -31,7 +34,7 @@ const addContact = (name, phone) => (dispatch, getState) => {
   }
 
   axios
-    .post('/users', contact)
+    .post('/contacts', contact)
     .then(({ data }) => dispatch(addContactSuccess(data)))
     .catch((err) => dispatch(addContactError(err.message)));
 };
@@ -39,7 +42,7 @@ const addContact = (name, phone) => (dispatch, getState) => {
 const deleteContact = (id) => (dispatch) => {
   dispatch(deleteContactRequest());
   axios
-    .delete(`/users/${id}`)
+    .delete(`/contacts/${id}`)
     .then(() => dispatch(deleteContactSuccess(id)))
     .catch((err) => dispatch(deleteContactError(err.message)));
 };
@@ -47,18 +50,25 @@ const deleteContact = (id) => (dispatch) => {
 const fetchContact = () => (dispatch) => {
   dispatch(fetchContactRequest());
   axios
-    .get('/users')
+    .get('/contacts')
     .then(({ data }) => dispatch(fetchContactSuccess(data)))
     .catch((err) => dispatch(fetchContactError(err.message)));
 };
 
-const updateContact = ({ id, body }) => (dispatch) => {
-  const update = { body };
-
-  dispatch(updateContactRequest());
-
+const fetchContactById = (id) => (dispatch) => {
+  dispatch(fetchContactByIdRequest());
   axios
-    .patch(`/users/${id}`, update)
+    .get(`/contacts/${id}`)
+    .then(({ data }) => dispatch(fetchContactByIdSuccess(data)))
+    .catch((err) => dispatch(fetchContactByIdError(err.message)));
+};
+
+const updateContact = ({ id, body }) => (dispatch) => {
+  console.log(id);
+  console.log(body);
+  dispatch(updateContactRequest());
+  axios
+    .patch(`/contacts/${id}`, body)
     .then(({ data }) => dispatch(updateContactSuccess(data)))
     .catch((error) => dispatch(updateContactError(error)));
 };
@@ -67,5 +77,6 @@ export default {
   addContact,
   deleteContact,
   fetchContact,
+  fetchContactById,
   updateContact
 };

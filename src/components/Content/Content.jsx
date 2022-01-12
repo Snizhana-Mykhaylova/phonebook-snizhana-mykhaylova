@@ -1,6 +1,7 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
+import { Spinner } from 'reactstrap';
 
 const Home = lazy(() =>
   import('../../views/HomeView' /* webpackChunkName: "home-page" */)
@@ -17,20 +18,22 @@ const AboutView = lazy(() =>
 const UpdateView = lazy(() =>
   import('../../views/UpdateView' /* webpackChunkName: "UpdateView" */)
 );
+const Page404 = lazy(() =>
+  import('../../components/Page404' /* webpackChunkName: "Page404" */)
+);
 
-const Container = () => (
-  <div>
-    <Suspense fallback={<p>Loading...</p>}>
+const Content = () => (
+  <main className='content'>
+    <Suspense fallback={<Spinner color='primary'>Loading...</Spinner>}>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/contacts' element={<ContactsView />} />
         <Route path='/about' element={<AboutView />} />
         <Route path='/update/:id' element={<UpdateView />} />
-        <Route path='*' element={<Navigate to='/' />} />
-        {/* <Route path='*' element={<Page404 />} /> */}
+        <Route path='*' element={<Page404 />} />
       </Routes>
     </Suspense>
-  </div>
+  </main>
 );
 
-export default Container;
+export default Content;

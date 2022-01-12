@@ -1,0 +1,25 @@
+.user-photo {
+  max-width: 50px;
+  margin-right: 10px;
+  border-radius: 100px;
+}
+
+.phone-fild {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.button-set {
+  display: flex;
+  justify-content: space-between;
+  min-width: 60px;
+  margin-left: auto;
+
+  @media screen and (max-width: 480px) {
+    margin-left: 25px;
+    direction: colllon;
+    flex-direction: column;
+  }
+}

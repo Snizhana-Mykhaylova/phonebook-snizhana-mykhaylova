@@ -1,47 +1,25 @@
 import { NavLink } from 'react-router-dom';
+import { Nav, NavItem } from 'reactstrap';
 
 const Menu = () => {
   return (
-    <nav>
-      <NavLink
-        to='/'
-        // exact
-        // activeStyle={{
-        //   backgroundColor: 'white',
-        //   color: '#3f51b5'
-        // }}
-      >
-        Home
-      </NavLink>
+    <Nav>
+      <NavItem className='menu-item '>
+        <NavLink to='/'>Home</NavLink>
+      </NavItem>
 
-      <NavLink
-        to='/contacts'
-        // activeStyle={{
-        //   backgroundColor: 'white',
-        //   color: '#3f51b5'
-        // }}
-      >
-        Contacts
-      </NavLink>
-      <NavLink
-        to='/about'
-        // activeStyle={{
-        //   backgroundColor: 'white',
-        //   color: '#3f51b5'
-        // }}
-      >
-        About
-      </NavLink>
-      <NavLink
-        to='/404'
-        // activeStyle={{
-        //   backgroundColor: 'white',
-        //   color: '#3f51b5'
-        // }}
-      >
-        404
-      </NavLink>
-    </nav>
+      <NavItem className='menu-item'>
+        <NavLink to='/contacts'>Contacts</NavLink>
+      </NavItem>
+
+      <NavItem className='menu-item'>
+        <NavLink to='/about'>About</NavLink>
+      </NavItem>
+
+      <NavItem className='menu-item'>
+        <NavLink to='/404'>404</NavLink>
+      </NavItem>
+    </Nav>
   );
 };
 

@@ -52,7 +52,12 @@ const ContactForm = ({ onAddContact }) => {
         />
       </FormGroup>
 
-      <Button type='submit' variant='contained' color='primary'>
+      <Button
+        className='add-contact-button'
+        type='submit'
+        variant='contained'
+        color='primary'
+      >
         Add contact
       </Button>
     </Form>

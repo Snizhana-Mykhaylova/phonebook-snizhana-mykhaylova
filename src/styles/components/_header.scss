@@ -1,0 +1,27 @@
+.header {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  border-bottom: 1px solid #ececec;
+  background: white;
+  font-size: 30px;
+}
+
+.logo {
+  width: 80px;
+  border-radius: 100px;
+  @media screen and(min-width: 480px) {
+    width: 80px;
+  }
+  @media screen and(min-width: 768px) {
+    width: 65px;
+  }
+  @media screen and(min-width: 1200px) {
+    width: 76px;
+  }
+}

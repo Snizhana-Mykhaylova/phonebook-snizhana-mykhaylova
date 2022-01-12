@@ -1,9 +1,5 @@
 const AboutView = () => {
-  return (
-    <div>
-      <h2>AboutView</h2>
-    </div>
-  );
+  return <h2 className='section__title'>AboutView</h2>;
 };
 
 export default AboutView;

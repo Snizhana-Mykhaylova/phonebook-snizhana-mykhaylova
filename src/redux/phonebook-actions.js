@@ -22,6 +22,18 @@ export const fetchContactSuccess = createAction('contacts/fetchContactSuccess');
 
 export const fetchContactError = createAction('contacts/fetchContactError');
 
+export const fetchContactByIdRequest = createAction(
+  'contacts/fetchContactByIdRequest'
+);
+
+export const fetchContactByIdSuccess = createAction(
+  'contacts/fetchContactByIdSuccess'
+);
+
+export const fetchContactByIdError = createAction(
+  'contacts/fetchContactByIdError'
+);
+
 export const updateContactRequest = createAction(
   'contacts/updateContactRequest'
 );
