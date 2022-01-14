@@ -3,23 +3,23 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import { Spinner } from 'reactstrap';
 
-const Home = lazy(() =>
-  import('../../views/HomeView' /* webpackChunkName: "home-page" */)
+const Home = lazy(
+  () => import('../views/HomeView' /* webpackChunkName: "home-page" */)
 );
 
-const ContactsView = lazy(() =>
-  import('../../views/ContactsView' /* webpackChunkName: "ContactsView" */)
+const ContactsView = lazy(
+  () => import('../views/ContactsView' /* webpackChunkName: "ContactsView" */)
 );
 
-const AboutView = lazy(() =>
-  import('../../views/AboutView' /* webpackChunkName: "AboutView" */)
+const AboutView = lazy(
+  () => import('../views/AboutView' /* webpackChunkName: "AboutView" */)
 );
 
-const UpdateView = lazy(() =>
-  import('../../views/UpdateView' /* webpackChunkName: "UpdateView" */)
+const UpdateView = lazy(
+  () => import('../views/UpdateView' /* webpackChunkName: "UpdateView" */)
 );
-const Page404 = lazy(() =>
-  import('../../components/Page404' /* webpackChunkName: "Page404" */)
+const Page404 = lazy(
+  () => import('./Page404' /* webpackChunkName: "Page404" */)
 );
 
 const Content = () => (

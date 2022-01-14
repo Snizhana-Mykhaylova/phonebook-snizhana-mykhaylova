@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import operations from '../redux/phonebook-operatios';
 
-import UpdateForm from '../components/UpdateForm';
+import UpdateForm from '../components/UpdateFrom';
 
 const UpdateView = () => {
   const dispatch = useDispatch();

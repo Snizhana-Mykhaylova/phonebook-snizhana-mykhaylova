@@ -1,20 +1,22 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Button, Form, FormGroup, Input, Label } from 'reactstrap';
-import { connect } from 'react-redux';
+import operations from '../redux/phonebook-operatios';
 
-import operations from '../../redux/phonebook-operatios';
-
-const ContactForm = ({ onAddContact }) => {
+const ContactForm = () => {
   const [phone, setPhone] = useState('');
   const [name, setName] = useState('');
 
-  const handlerChangeName = (e) => setName(e.target.value);
-  const handlerChangePhone = (e) => setPhone(e.target.value);
+  const dispatch = useDispatch();
 
-  const handleSubmit = (e) => {
+  const handleChangeName = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setName(e.target.value);
+  const handleChangePhone = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setPhone(e.target.value);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    onAddContact(name, phone);
+    dispatch(operations.addContact(name, phone));
     setName('');
     setPhone('');
   };
@@ -33,7 +35,7 @@ const ContactForm = ({ onAddContact }) => {
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
           required
-          onChange={handlerChangeName}
+          onChange={handleChangeName}
         />
       </FormGroup>
       <FormGroup>
@@ -48,7 +50,7 @@ const ContactForm = ({ onAddContact }) => {
           pattern='(\+?( |-|\.)?\d{1,2}( |-|\.)?)?(\(?\d{3}\)?|\d{3})( |-|\.)?(\d{3}( |-|\.)?\d{4})'
           title='Номер телефона должен состоять из 11-12 цифр и может содержать цифры, пробелы, тире, пузатые скобки и может начинаться с +'
           required
-          onChange={handlerChangePhone}
+          onChange={handleChangePhone}
         />
       </FormGroup>
 
@@ -64,8 +66,4 @@ const ContactForm = ({ onAddContact }) => {
   );
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  onAddContact: (name, phone) => dispatch(operations.addContact(name, phone))
-});
-
-export default connect(null, mapDispatchToProps)(ContactForm);
+export default ContactForm;

@@ -1,12 +1,18 @@
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import operations from '../../redux/phonebook-operatios';
-import noUser from '../../utils/noUser.png';
+import operations from '../redux/phonebook-operatios';
+import noUser from '../utils/noUser.png';
 import { Row, Col, Button } from 'reactstrap';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import BorderColorOutlinedIcon from '@mui/icons-material/BorderColorOutlined';
 
-const ContactItem = ({ contact }) => {
+type Contact = { id: string; name: string; phone: string; img?: string };
+
+interface Props {
+  contact: Contact;
+}
+
+const ContactItem = ({ contact }: Props) => {
   const dispatch = useDispatch();
   return (
     <li>

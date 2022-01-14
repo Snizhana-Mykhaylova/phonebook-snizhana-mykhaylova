@@ -8,15 +8,17 @@ import {
   Spinner
 } from 'reactstrap';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import * as selectors from '../../redux/phonebook-selectors';
-import operations from '../../redux/phonebook-operatios';
-import noUser from '../../utils/noUser.png';
+import * as selectors from '../redux/phonebook-selectors';
+import operations from '../redux/phonebook-operatios';
+import noUser from '../utils/noUser.png';
+
+type Contact = { id: string; name: string; phone: string; img?: string };
 
 const UpdateForm = () => {
-  const contacts = useSelector(selectors.getContacts);
+  const contacts: Contact[] = useSelector(selectors.getContacts);
   const dispatch = useDispatch();
   const isLoading = useSelector(selectors.getLoading);
   const { id } = useParams();
@@ -28,15 +30,17 @@ const UpdateForm = () => {
 
   const isAlert = useSelector(selectors.getAlert);
 
-  const handlerChangeName = (e) => setName(e.target.value);
-  const handlerChangePhone = (e) => setPhone(e.target.value);
+  const handleChangeName = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setName(e.target.value);
+  const handleChangePhone = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setPhone(e.target.value);
 
   useEffect(() => {
     setPhone(contact ? contact.phone : '');
     setName(contact ? contact.name : '');
   }, [contact]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const body = { name, phone };
     const id = contact.id;
@@ -64,7 +68,7 @@ const UpdateForm = () => {
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
             required
-            onChange={handlerChangeName}
+            onChange={handleChangeName}
           />
         </FormGroup>
         <FormGroup>
@@ -77,7 +81,7 @@ const UpdateForm = () => {
             type='tel'
             name='phone'
             required
-            onChange={handlerChangePhone}
+            onChange={handleChangePhone}
           />
           {isLoading && <Spinner color='primary'>Loading...</Spinner>}
         </FormGroup>

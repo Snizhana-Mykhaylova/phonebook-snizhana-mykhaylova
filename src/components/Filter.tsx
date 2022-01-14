@@ -2,8 +2,8 @@ import { Input } from 'reactstrap';
 
 import { useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import * as actions from '../../redux/phonebook-actions';
-import * as selectors from '../../redux/phonebook-selectors';
+import * as actions from '../redux/phonebook-actions';
+import * as selectors from '../redux/phonebook-selectors';
 
 const Filter = () => {
   const dispatch = useDispatch();
