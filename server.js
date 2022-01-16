@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 8000;
 server.use(middlewares);
 server.use(
   jsonServer.rewriter({
-    '/api/*': '/$1'
+    '/api/*': 'index.html'
   })
 );
 server.use(router);
@@ -16,7 +16,7 @@ server.use(router);
 // if (process.env.NODE_ENV === 'production') {
 //   app.use(express.static('client/build'));
 //   app.get('/*', function (req, res) {
-//     res.sendFile(path.join(__dirname, './client/build/index.html'));
+//     res.sendFile(path.join(__dirname, './build/index.html'));
 //   });
 // }
 
