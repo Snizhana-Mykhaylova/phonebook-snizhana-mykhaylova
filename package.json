@@ -33,13 +33,13 @@
     "web-vitals": "^2.1.2"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest --no-cach",
     "eject": "react-scripts eject",
     "deploy": "netlify deploy -p",
     "predeploy": "npm run build",
-    "server": "json-server --watch db.json"
+    "server": "json-server --watch db.json --port 4040"
   },
   "eslintConfig": {
     "extends": [
