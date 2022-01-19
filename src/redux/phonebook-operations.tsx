@@ -16,7 +16,7 @@ import {
 } from './phonebook-actions';
 
 axios.defaults.baseURL =
-  'https://dashboard.heroku.com/apps/snizhna-mykhaylova-phonebook/api';
+  'https://snizhna-mykhaylova-phonebook.herokuapp.com/api';
 
 interface Contact {
   id: string;
