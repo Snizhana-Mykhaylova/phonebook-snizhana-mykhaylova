@@ -15,7 +15,8 @@ import {
   updateContactError
 } from './phonebook-actions';
 
-axios.defaults.baseURL = 'https://test-bakend-json-server.herokuapp.com';
+axios.defaults.baseURL =
+  'https://dashboard.heroku.com/apps/snizhna-mykhaylova-phonebook/api';
 
 interface Contact {
   id: string;
