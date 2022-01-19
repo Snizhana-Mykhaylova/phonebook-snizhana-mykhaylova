@@ -12,7 +12,7 @@ import React, { useEffect, useState } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import * as selectors from '../redux/phonebook-selectors';
-import operations from '../redux/phonebook-operatios';
+import operations from '../redux/phonebook-operations';
 import noUser from '../utils/noUser.png';
 
 type Contact = { id: string; name: string; phone: string; img?: string };

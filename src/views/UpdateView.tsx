@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import operations from '../redux/phonebook-operatios';
+import operations from '../redux/phonebook-operations';
 
 import UpdateForm from '../components/UpdateFrom';
 

@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import operations from '../redux/phonebook-operatios';
+import operations from '../redux/phonebook-operations';
 import noUser from '../utils/noUser.png';
 import { Row, Col, Button } from 'reactstrap';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';

@@ -7,7 +7,7 @@ import ContactList from '../components/ContactList';
 import Filter from '../components/Filter';
 
 import * as selectors from '../redux/phonebook-selectors';
-import operations from '../redux/phonebook-operatios';
+import operations from '../redux/phonebook-operations';
 
 const ContactsView = () => {
   const dispatch = useDispatch();
