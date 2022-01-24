@@ -9,7 +9,7 @@ In the project directory, you can run:
 ### `npm start`
 
 Runs the app in the development mode.\
-Open [sng-phonebook-netlify.netlify.app/](sng-phonebook-netlify.netlify.app/) to view it in the browser.
+Open [https://sng-phonebook-netlify.netlify.app/](https://sng-phonebook-netlify.netlify.app/) to view it in the browser.
 
 ### `npm test`
 
