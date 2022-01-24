@@ -33,11 +33,11 @@
     "web-vitals": "^2.1.2"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "jest --no-cach",
-    "eject": "react-scripts eject",
-    "server": "json-server --watch db.json --port 4040"
+    "test:coverage": "jest --coverage",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
